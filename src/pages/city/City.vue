@@ -2,8 +2,8 @@
   <div class="">
     <Header></Header>
     <Search></Search>
-    <List :cities="cities" :hot="hotCities"></List>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <List :letters="letters" :cities="cities" :hot="hotCities"></List>
+    <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
   </div>
 </template>
 <script>
@@ -12,12 +12,14 @@ import Header from './components/Header'
 import Search from './components/Search'
 import List from './components/List'
 import CityAlphabet from './components/Alphabet'
+
 export default {
   name: 'City',
   data () {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letters: ''
     }
   },
   components: {
@@ -37,6 +39,9 @@ export default {
         this.cities = data.cities
         this.hotCities = data.hotCities
       }
+    },
+    handleLetterChange (letter) {
+      this.letters = letter
     }
   },
   mounted () {

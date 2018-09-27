@@ -13,7 +13,6 @@ module.exports = {
     proxyTable: {
       '/api':{
         target:"http://localhost:8080",
-        // chargeOrigin:true,
         pathRewrite: {
           '^/api': '/static/moke'
         }
