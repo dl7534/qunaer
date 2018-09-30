@@ -1,7 +1,7 @@
 <template>
   <ul class="list">
     <li class="item"
-        v-for='item  of letters'
+        v-for="item of letters"
         :key="item"
         :ref="item"
         @click="handleLetterClick"
