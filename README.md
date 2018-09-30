@@ -2,6 +2,8 @@
 
 > A Vue.js projects
 
+## 使用vue+vue-router+vuex+axios+better-scroll+stylus+es6
+
 ## Build Setup
 
 ``` bash
