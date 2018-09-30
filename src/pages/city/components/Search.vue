@@ -13,7 +13,7 @@
 </template>
 <script>
 import Bscroll from 'better-scroll'
-
+import { mapMutations } from 'Vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -58,10 +58,12 @@ export default {
   },
   methods: {
     handleCityClick (city) {
-      // 跳过action 直接调用commot方法
-      this.$store.commit('changeCity', city)
+      // 调用action方法
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.search)
