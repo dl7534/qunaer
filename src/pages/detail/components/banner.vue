@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1507/e4/a3f526c57e0115798af52929d294ddd6.water.jpg_600x330_33fbf9b7.jpg" alt="">
+      <img class="banner-img" :src="bannerImg" alt="">
       <div class="banner-info">
-        <div class="banner-title">大连圣亚海洋世界(AAAA景区)</div>
+        <div class="banner-title">{{this.singhtName}}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe692;</span>
-          39
+          {{this.bannerImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" @close="handleGallaryClose" v-show="showGallary"></common-gallary>
+    <common-gallary :imgs="bannerImgs" @close="handleGallaryClose" v-show="showGallary"></common-gallary>
   </div>
 </template>
 <script>
@@ -20,13 +20,13 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    singhtName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   data () {
     return {
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1507/e4/a3f526c57e0115798af52929d294ddd6.water.jpg_r_800x800_b0f6ec5d.jpg',
-        'http://img1.qunarzz.com/sight/p0/1409/18/691791f00f29bce28a90f898d3faab1a.jpg_r_800x800_6f65375a.jpg',
-        'http://img1.qunarzz.com/sight/p0/1409/18/a0657073c6e21e7dfbde415d19039c5a.jpg_r_800x800_682a02fc.jpg'
-      ],
       showGallary: false
     }
   },
